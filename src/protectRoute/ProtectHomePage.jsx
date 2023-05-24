@@ -39,7 +39,9 @@ const ProtectHomePage = ({ setIsLoaded, setPosts }) => {
           console.log(err);
         });
     }
-    setOk(true);
+    if (token) {
+      setOk(true);
+    }
   }, []);
 
   return ok ? <Outlet /> : <Spinner />;
