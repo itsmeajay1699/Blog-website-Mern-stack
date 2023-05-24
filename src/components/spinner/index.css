@@ -1,5 +1,5 @@
 .spinner-wrapper {
-  height: 49.5rem;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
