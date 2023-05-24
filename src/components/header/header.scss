@@ -8,11 +8,7 @@
   align-items: center;
   transition: all ease 0.5s;
   padding: 40px 15px;
-  background: radial-gradient(
-    circle,
-    rgba(238, 174, 202, 1) 0%,
-    rgba(148, 187, 233, 1) 100%
-  );
+  background-color: #57a8cc;
   z-index: 2;
   .max-width {
     width: 100%;
@@ -75,7 +71,7 @@
   }
 }
 .name1 {
-  color: #000;
+  color: #fff;
   font-size: 24px;
   font-weight: 700;
   margin-left: 10px;
@@ -91,7 +87,7 @@
   text-transform: capitalize;
 }
 .menuItem1 {
-  background-color: #3f5efb;
+  background-color: #3d768f;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   margin-left: 14px;
   padding: 10px 30px;
