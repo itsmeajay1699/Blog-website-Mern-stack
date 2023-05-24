@@ -26,6 +26,10 @@ const CreatePage = () => {
         })
         .then(() => {
           toast.success("Post Created Successfully");
+          setTitle("");
+          setContent("");
+          setDescription("");
+          setImage("");
         })
         .catch((err) => {
           console.log(1);
