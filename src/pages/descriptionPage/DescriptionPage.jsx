@@ -227,7 +227,7 @@ const DetailPageBanner = () => {
               }}
               className="form"
             >
-              <div className="header">Create Post</div>
+              <div className="header">Update Post</div>
               <div className="inputs">
                 <input
                   value={title}
