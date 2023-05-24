@@ -134,6 +134,8 @@ const BlogCard = ({ item, setPosts }) => {
         >
           {
             <div className="like posi">
+              {/* eslint-disable-next-line react/prop-types */}
+              <span className="like-count">{item.likes.length || ""}</span>
               {check.length > 0 ? (
                 // eslint-disable-next-line react/prop-types
                 <div
@@ -143,8 +145,6 @@ const BlogCard = ({ item, setPosts }) => {
                     alignItems: "center",
                   }}
                 >
-                  {/* eslint-disable-next-line react/prop-types */}
-                  <span className="like-count">{item.likes.length}</span>
                   {/* eslint-disable-next-line react/prop-types */}
                   <FcLike onClick={() => likePost(item._id)} />
                 </div>
