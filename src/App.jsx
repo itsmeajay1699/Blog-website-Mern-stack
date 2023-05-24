@@ -20,11 +20,11 @@ function App() {
           Authorization: `Bearer ${token}`,
         },
       });
-      setPosts(res.data);
+      setPosts(res.data); 
       setIsLoaded(false);
     };
     fetchPosts();
-  }, [token]);
+  }, []);
   return (
     <BrowserRouter>
       <Routes>
