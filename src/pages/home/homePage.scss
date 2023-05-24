@@ -1,0 +1,33 @@
+@import "../../mixins.scss";
+
+.home-page-container {
+  .home-page-items {
+    display: grid;
+    grid-gap: 1rem;
+    @include md {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @include lg {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+.load-more-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 100;
+  background: #2890e9;
+  color: #fff;
+  border: none;
+  font-size: 25px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+}

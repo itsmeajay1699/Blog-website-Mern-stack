@@ -1,0 +1,36 @@
+.spinner-wrapper {
+  height: 49.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000;
+  color: #fff;
+}
+.spinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -100px;
+}
+.moon {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: rotate 10s linear infinite;
+  margin-bottom: 30px;
+}
+.moon-img {
+  max-width: 250px;
+  border-radius: 50%;
+}
+.half-moon-img {
+  border-radius: 50%;
+  position: absolute;
+  top: -100px;
+  right: -90px;
+  transform: rotate(-20deg);
+}

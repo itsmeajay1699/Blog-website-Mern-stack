@@ -1,0 +1,74 @@
+@import "../../mixins.scss";
+
+.footer-wrapper {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #032440;
+  .footer-items {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    @include md {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @include lg {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .first {
+      width: 250px;
+      height: 250px;
+      position: relative;
+      .img1 {
+        width: 60%;
+        height: 60%;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        background-size: cover;
+        background-position: center;
+      }
+      .span {
+        padding: 10px 30px;
+        border-radius: 10px;
+        background-color: #fff;
+        position: absolute;
+        bottom: 40px;
+        left: 5px;
+        right: 20px;
+      }
+    }
+    .second {
+      color: #fff;
+    }
+    .third {
+      color: #fff;
+    }
+    .forth {
+      color: #fff;
+    }
+  }
+  .icons {
+    display: flex;
+    gap: 20px;
+    .ig-icon {
+      width: 30px;
+      height: 30px;
+      color: #c1255f;
+    }
+    .li-icon {
+      width: 30px;
+      height: 30px;
+      color: #0b5fbb;
+    }
+    .git-icon {
+      width: 30px;
+      height: 30px;
+      color: #171a1e;
+    }
+  }
+}
+.link-post {
+  text-align: start;
+  color: #fff;
+}

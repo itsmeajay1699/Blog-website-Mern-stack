@@ -1,0 +1,110 @@
+@import "../../mixins.scss";
+
+.header1 {
+  position: relative;
+  height: 60px;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  transition: all ease 0.5s;
+  padding: 50px 15px;
+  background-color: #000;
+  z-index: 2;
+  .max-width {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .logo {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      img {
+        width: 60px;
+        border-radius: 50%;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+    .menuItems {
+      list-style-type: none;
+      align-items: center;
+      @include md {
+        display: flex;
+      }
+      .menuItem {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        margin: 0 15px;
+        color: white;
+        font-weight: 500;
+        position: relative;
+        &.searchIcon {
+          margin-right: 0;
+        }
+        svg {
+          font-size: 18px;
+        }
+        cursor: pointer;
+        &:hover {
+          color: #f0f9ff;
+        }
+      }
+    }
+
+    .mobileMenuItems {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      @include md {
+        display: none;
+      }
+      svg {
+        font-size: 18px;
+        color: white;
+      }
+    }
+  }
+}
+.name1 {
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+.name {
+  color: white;
+  display: none;
+  font-size: 26px;
+  font-weight: 500;
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+.menuItem1 {
+  background-color: #014970;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  margin-left: 14px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  &:hover {
+    background-color: #fff;
+    color: #249bfa;
+  }
+}
+@keyframes mobileMenu {
+  0% {
+    transform: translateY(-130%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
