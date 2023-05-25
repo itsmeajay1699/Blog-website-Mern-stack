@@ -8,8 +8,26 @@ import Paper from "@mui/material/Paper";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Loader from "../../components/loader/Loader";
+import axios from "axios";
+import { useEffect } from "react";
 // eslint-disable-next-line react/prop-types
 const HomePage = ({ isLoaded, posts, setPosts }) => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  const token = JSON.parse(localStorage.getItem("token"));
+  useEffect(() => {
+    const fetchPosts = async () => {
+      const res = await axios.get(
+        "https://blog-7vou.onrender.com/api/v1/posts/",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      setPosts(res.data);
+    };
+    fetchPosts();
+  }, []);
   const navigate = useNavigate();
   if (isLoaded) {
     return <Loader />;

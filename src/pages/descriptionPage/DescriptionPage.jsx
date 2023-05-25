@@ -59,13 +59,13 @@ const DetailPageBanner = () => {
           },
         }
       );
-
+      console.log(res)
       fetchPosts();
       // cal a function in 2 sec
       setTimeout(() => {
         toast.success("Comment added successfully");
         handleModal();
-      }, 2000);
+      }, 1000);
     } catch (err) {
       toast.error(err.response.data.error);
     }
@@ -91,7 +91,7 @@ const DetailPageBanner = () => {
           setTimeout(() => {
             toast.success("Post updated successfully");
             handleUpdate();
-          }, 2000);
+          }, 1000);
         })
         .catch((err) => {
           console.log(1);

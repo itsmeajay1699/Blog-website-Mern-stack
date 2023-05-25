@@ -4,25 +4,8 @@ import { Outlet } from "react-router-dom";
 import Spinner from "../components/spinner/Spinner";
 
 // eslint-disable-next-line react/prop-types
-const ProtectHomePage = ({ setIsLoaded, setPosts }) => {
+const ProtectHomePage = () => {
   const [ok, setOk] = React.useState(false);
-  const token = JSON.parse(localStorage.getItem("token"));
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  React.useEffect(() => {
-    const fetchPosts = async () => {
-      const res = await axios.get(
-        "https://blog-7vou.onrender.com/api/v1/posts/",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setPosts(res.data);
-      setIsLoaded(false);
-    };
-    fetchPosts();
-  }, []);
   React.useEffect(() => {
     const token = JSON.parse(localStorage.getItem("token"));
     if (token) {
