@@ -27,8 +27,14 @@ const Spinner = () => {
             alt=""
           />
         </div>
-        <h2>Please Login</h2>
-        <h1>You are redirecting in {counter} </h1>
+        <div
+          style={{
+            textAlign: "center",
+          }}
+        >
+          <h2>Please Login</h2>
+          <h1>You are redirecting in {counter} </h1>
+        </div>
       </div>
     </div>
   );
