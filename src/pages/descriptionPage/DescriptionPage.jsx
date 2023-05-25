@@ -59,7 +59,7 @@ const DetailPageBanner = () => {
           },
         }
       );
-      console.log(res)
+      console.log(res);
       fetchPosts();
       // cal a function in 2 sec
       setTimeout(() => {
@@ -75,7 +75,7 @@ const DetailPageBanner = () => {
     try {
       axios
         .patch(
-          `https://blog-7vou.onrender.com/api/v1/posts/${id}`,
+          `https://blog-7vou.onrender.com/api/v1/posts/${id} `,
           {
             title,
             description,
@@ -125,7 +125,7 @@ const DetailPageBanner = () => {
         <div className="opac"></div>
         <div className="detail-banner-items">
           <div className="movie-img-container">
-            <img src={img} alt="" />
+            <img className="desc-img" src={img} alt="" />
             <div className="opac1"></div>
           </div>
           <div className="movie-detail-container">
