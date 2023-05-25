@@ -37,7 +37,7 @@ function App() {
           <Route
             path=""
             element={
-              <HomePage isLoaded={isLoaded} posts={posts} setPosts={setPosts} />
+              <HomePage isLoaded={isLoaded} setIsLoaded={setIsLoaded} posts={posts} setPosts={setPosts} />
             }
           />
         </Route>

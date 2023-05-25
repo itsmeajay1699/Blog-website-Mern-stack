@@ -11,7 +11,7 @@ import Loader from "../../components/loader/Loader";
 import axios from "axios";
 import { useEffect } from "react";
 // eslint-disable-next-line react/prop-types
-const HomePage = ({ isLoaded, posts, setPosts }) => {
+const HomePage = ({ isLoaded, posts, setPosts, setIsLoaded }) => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const token = JSON.parse(localStorage.getItem("token"));
   useEffect(() => {
@@ -24,6 +24,7 @@ const HomePage = ({ isLoaded, posts, setPosts }) => {
           },
         }
       );
+      setIsLoaded(false);
       setPosts(res.data);
     };
     fetchPosts();
