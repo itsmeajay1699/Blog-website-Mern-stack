@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Utils from "../../utils/Contant";
 import "./card.css";
 import { FcLike, FcLikePlaceholder } from "react-icons/fc";
@@ -10,22 +9,7 @@ import { useDispatch } from "react-redux";
 import { setPost } from "../../slice/postSlice";
 // eslint-disable-next-line react/prop-types
 const BlogCard = ({ item, setPosts }) => {
-  const [img, setImg] = useState("");
   const dispatch = useDispatch();
-  useEffect(() => {
-    // eslint-disable-next-line react/prop-types
-    if (item.photo.data.data) {
-      const base64 = btoa(
-        // eslint-disable-next-line react/prop-types
-        new Uint8Array(item.photo.data.data).reduce(
-          (data, byte) => data + String.fromCharCode(byte),
-          ""
-        )
-      );
-      setImg("data:image/png;base64," + base64);
-    }
-    // eslint-disable-next-line react/prop-types
-  }, [item.photo.data.data]);
 
   const token = JSON.parse(localStorage.getItem("token"));
   const user = JSON.parse(localStorage.getItem("user"));
@@ -33,7 +17,7 @@ const BlogCard = ({ item, setPosts }) => {
   const check = item.likes.filter((like) => like._id === user._id);
   const fetchPosts = async () => {
     const res = await axios.get(
-      "https://blog-7vou.onrender.com/api/v1/posts/",
+      "https://da-u3xo.onrender.com/api/v1/posts/",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -47,7 +31,7 @@ const BlogCard = ({ item, setPosts }) => {
     try {
       // eslint-disable-next-line no-unused-vars
       const res = await axios.delete(
-        `https://blog-7vou.onrender.com/api/v1/posts/${id}`,
+        `https://da-u3xo.onrender.com/api/v1/posts/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -66,7 +50,7 @@ const BlogCard = ({ item, setPosts }) => {
   const likePost = async (id) => {
     try {
       const res = await axios.get(
-        `https://blog-7vou.onrender.com/api/v1/posts/like/${id}`,
+        `https://da-u3xo.onrender.com/api/v1/posts/like/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -94,7 +78,8 @@ const BlogCard = ({ item, setPosts }) => {
         state={item}
         className="img-container"
       >
-        <img className="card-img" src={img} alt="" />
+        {/* eslint-disable-next-line react/prop-types */}
+        <img className="card-img" src={item.photo} alt="" />
       </Link>
       <Link
         onClick={handlePost}

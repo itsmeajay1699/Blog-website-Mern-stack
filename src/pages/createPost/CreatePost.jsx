@@ -3,40 +3,60 @@ import Layout from "../../components/Layout";
 import { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 const CreatePage = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [description, setDescription] = useState("");
-  const [image, setImage] = useState("");
+  const [fileSelected, setImage] = useState("");
+  const navigate = useNavigate();
   const token = JSON.parse(localStorage.getItem("token"));
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    console.log(image);
-    formData.append("title", title);
-    formData.append("subtitle", content);
-    formData.append("description", description);
-    formData.append("photo", image);
+    formData.append("file", fileSelected);
+    formData.append("upload_preset", "vzz1kzak");
+    console.log(formData);
     try {
       axios
-        .post("https://blog-7vou.onrender.com/api/v1/posts/create", formData, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+        .post(
+          "https://api.cloudinary.com/v1_1/dijipxpe6/image/upload",
+          formData
+        )
+        .then((res) => {
+          console.log(res.data.url);
+          axios
+            .post(
+              "https://da-u3xo.onrender.com/api/v1/posts/create",
+              {
+                title: title,
+                subtitle: content,
+                description: description,
+                photo: res.data.url,
+              },
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            )
+            .then((res) => {
+              console.log(res);
+              toast.success("Post Created Successfully");
+              navigate("/");
+            })
+            .catch((error) => {
+              console.log(error);
+              toast.error("server error2");
+            });
         })
-        .then(() => {
-          toast.success("Post Created Successfully");
-          setTitle("");
-          setContent("");
-          setDescription("");
-          setImage("");
-        })
-        .catch((err) => {
-          console.log(1);
-          toast.error(err.response.data.error);
+        .catch((error) => {
+          console.log(error);
+          toast.error("Sever Error");
         });
-    } catch (err) {
-      toast.error(err.response.data.error);
+    } catch (error) {
+      console.log(error);
+      toast.error("server error3");
     }
   };
 

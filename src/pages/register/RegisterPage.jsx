@@ -17,7 +17,7 @@ const LoginPage = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://blog-7vou.onrender.com/api/v1/auth/register",
+        "https://da-u3xo.onrender.com/api/v1/auth/register",
         {
           name: userName,
           email,

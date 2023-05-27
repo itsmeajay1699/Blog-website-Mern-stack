@@ -43,7 +43,7 @@
     width: 100%;
     position: relative;
     float: left;
-    max-height: 400px;
+    min-height: 480px;
     margin-right: 20px;
     @include md {
       width: 50%;

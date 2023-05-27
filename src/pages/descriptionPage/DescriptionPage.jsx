@@ -15,7 +15,6 @@ const DetailPageBanner = () => {
   const post1 = useSelector((state) => state.post.Post);
   const dispatch = useDispatch();
   const [update, setUpdate] = useState(false);
-  const [img, setImg] = useState("");
   const [comment, setComment] = useState("");
   const token = JSON.parse(localStorage.getItem("token"));
   const user = JSON.parse(localStorage.getItem("user"));
@@ -32,24 +31,23 @@ const DetailPageBanner = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchPosts = async () => {
     // eslint-disable-next-line no-unused-vars
-    const res = await axios.get(
-      "https://blog-7vou.onrender.com/api/v1/posts/",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    console.log(id);
+    const res = await axios.get("https://da-u3xo.onrender.com/api/v1/posts/", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     const postById = res.data.filter((post) => post._id === id);
 
     dispatch(setPost(postById[0]));
+    console.log(postById[0]);
   };
 
   const makeComment = async (postId) => {
     try {
       // eslint-disable-next-line no-unused-vars
       const res = await axios.post(
-        `https://blog-7vou.onrender.com/api/v1/posts/comment/${postId}`,
+        `https://da-u3xo.onrender.com/api/v1/posts/comment/${postId}`,
         {
           comment,
         },
@@ -71,11 +69,15 @@ const DetailPageBanner = () => {
     }
   };
 
+  useEffect(() => {
+    fetchPosts();
+  }, [update]);
+
   const handleSubmit = (id) => {
     try {
       axios
         .patch(
-          `https://blog-7vou.onrender.com/api/v1/posts/${id} `,
+          `https://da-u3xo.onrender.com/api/v1/posts/${id} `,
           {
             title,
             description,
@@ -103,29 +105,17 @@ const DetailPageBanner = () => {
     }
   };
 
-  useEffect(() => {
-    fetchPosts();
-    if (post1?.photo?.data?.data) {
-      const base64 = btoa(
-        new Uint8Array(post1?.photo?.data.data).reduce(
-          (data, byte) => data + String.fromCharCode(byte),
-          ""
-        )
-      );
-      setImg("data:image/png;base64," + base64);
-    }
-  }, [Object.keys(post1).length > 0]);
   // post is empty so we need to check if post is empty or not
   return Object.keys(post1).length > 0 ? (
     <>
       <Header />
       <div className="detail-banner">
         <Toaster />
-        <img src={img} className="bg-img" />
+        <img src={post1?.photo} className="bg-img" />
         <div className="opac"></div>
         <div className="detail-banner-items">
           <div className="movie-img-container">
-            <img className="desc-img" src={img} alt="" />
+            <img className="desc-img" src={post1?.photo} alt="" />
             <div className="opac1"></div>
           </div>
           <div className="movie-detail-container">

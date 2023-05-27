@@ -10,7 +10,7 @@ const ProtectHomePage = () => {
     const token = JSON.parse(localStorage.getItem("token"));
     if (token) {
       axios
-        .get("https://blog-7vou.onrender.com/api/v1/auth/protect/home", {
+        .get("https://da-u3xo.onrender.com/api/v1/auth/protect/home", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

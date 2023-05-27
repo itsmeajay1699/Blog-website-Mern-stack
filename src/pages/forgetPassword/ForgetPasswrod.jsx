@@ -19,7 +19,7 @@ const ForgetPassword = () => {
         return toast.error("Password and Confirm Password does not match");
       }
       const response = await axios.patch(
-        "https://blog-7vou.onrender.com/api/v1/auth/update-password",
+        "https://da-u3xo.onrender.com/api/v1/auth/update-password",
         {
           email,
           password,
@@ -40,7 +40,7 @@ const ForgetPassword = () => {
 
     try {
       const response = await axios.post(
-        "https://blog-7vou.onrender.com/api/v1/auth/forget-password",
+        "https://da-u3xo.onrender.com/api/v1/auth/forget-password",
         {
           email,
         }

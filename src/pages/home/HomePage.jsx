@@ -17,7 +17,7 @@ const HomePage = ({ isLoaded, posts, setPosts, setIsLoaded }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       const res = await axios.get(
-        "https://blog-7vou.onrender.com/api/v1/posts/",
+        "https://da-u3xo.onrender.com/api/v1/posts/",
         {
           headers: {
             Authorization: `Bearer ${token}`,
