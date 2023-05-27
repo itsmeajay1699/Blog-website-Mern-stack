@@ -71,7 +71,7 @@ const DetailPageBanner = () => {
 
   useEffect(() => {
     fetchPosts();
-  }, [update]);
+  }, []);
 
   const handleSubmit = (id) => {
     try {
